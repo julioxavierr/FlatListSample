@@ -1,23 +1,58 @@
 {
-  "name": "MovieChat",
+  "name": "movie-chat",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .js packages/**",
+    "lint:staged": "lint-staged"
   },
   "dependencies": {
     "react": "16.6.3",
-    "react-native": "0.57.8"
+    "react-native": "0.57.8",
+    "react-navigation": "2.18.0",
+    "styled-components": "^4.1.2"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-export-default-from": "7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/plugin-proposal-class-properties": "7.0.0",
+    "@babel/plugin-transform-async-to-generator": "7.0.0",
+    "@babel/plugin-syntax-async-generators": "7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.7.0",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.5.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "flow-bin": "0.85.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+  "pre-commit": "^1.2.2",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.51.1",
     "react-test-renderer": "16.6.3"
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote true --trailing-comma all --print-width 100",
+      "git add"
+    ],
+    "*.yml": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint:staged",
   "jest": {
     "preset": "react-native"
   }
