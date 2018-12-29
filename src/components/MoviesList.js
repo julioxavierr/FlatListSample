@@ -29,6 +29,11 @@ const Separator = styled.View`
   background-color: #ccc;
 `;
 
+const Item = styled.View`
+  padding: 20px 5px;
+  background-color: #fff;
+`;
+
 class MoviesList extends React.Component<Props, State> {
   state = {
     movies,
@@ -43,9 +48,9 @@ class MoviesList extends React.Component<Props, State> {
 
     return (
       <TouchableHighlight underlayColor="whitesmoke">
-        <View>
+        <Item>
           <Text>{title}</Text>
-        </View>
+        </Item>
       </TouchableHighlight>
     );
   };
