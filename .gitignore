@@ -54,3 +54,17 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+# Random things to ignore
+ignore/
+package-lock.json
+yarn-offline-cache
+
+hard-source-cache/
+**/hard-source-cache/
+
+.cache
+.vs/
+
+# Flow log
+flow.log
