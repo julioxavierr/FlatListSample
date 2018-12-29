@@ -47,12 +47,18 @@ class MoviesList extends React.Component<Props, State> {
     const { title } = item;
 
     return (
-      <TouchableHighlight underlayColor="whitesmoke">
+      <TouchableHighlight onPress={() => this.goToComments(item)}>
         <Item>
           <Text>{title}</Text>
         </Item>
       </TouchableHighlight>
     );
+  };
+
+  goToComments = ({ title }: Movie) => {
+    const { navigate } = this.props.navigation;
+
+    navigate('MovieComment', { title });
   };
 
   render() {
@@ -63,7 +69,7 @@ class MoviesList extends React.Component<Props, State> {
         <FlatList
           data={movies}
           renderItem={this.renderItem}
-          keyExtractor={item => item.rank}
+          keyExtractor={item => item.title}
           ItemSeparatorComponent={() => <Separator />}
         />
       </View>
